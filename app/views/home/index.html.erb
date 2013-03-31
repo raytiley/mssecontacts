@@ -95,16 +95,12 @@ var contacts = [
                 });
                 
                 function refreshContacts() {
-/*
                         $.getJSON("contacts", function(data) {
                             contacts = data;
-*/
                             var contact_template = $('#contacts').clone();
                             $('#contact').remove();
                             contact_template.tmpl(contacts).appendTo('#contacts');
-/*
                         });
-*/
                 }
 
   		function deleteContact(_name, _id) {
