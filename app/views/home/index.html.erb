@@ -40,8 +40,8 @@ var contacts = [
 					id: "1ab",
 					name: "Steve Atterbury",
 					title: "Lockheed",
-					defaultEmail: "Unimatrix01@gmail.com",
-					defaultPhone: "952-491-3716",
+					default_email: "Unimatrix01@gmail.com",
+					default_phone: "952-491-3716",
 					emails: [
 						"Unimatrix01@gmail.com"
 					],
@@ -53,8 +53,8 @@ var contacts = [
 					id: "2ab",
 					name: "Steve McAdams",
 					title: "Lockheed",
-					defaultEmail: "smcadams86@gmail.com",
-					defaultPhone: "555-555-5555",
+					default_email: "smcadams86@gmail.com",
+					default_phone: "555-555-5555",
 					emails: [
 						"smcadams86@gmail.com",
 					],
@@ -66,8 +66,8 @@ var contacts = [
 					id: "3ab",
 					name: "Ray Tiley",
 					title: "Tightrope Media Systems",
-					defaultEmail: "raytiley@gmail.com",
-					defaultPhone: "555-555-5555",
+					default_email: "raytiley@gmail.com",
+					default_phone: "555-555-5555",
 					emails: [
 						"raytiley@gmail.com"
 					],
@@ -79,8 +79,8 @@ var contacts = [
 					id: "4ab",
 					name: "Tyler Smith",
 					title: "General Dynamics",
-					defaultEmail: "tylerhesthedude@gmail.com",
-					defaultPhone: "555-555-5555",
+					default_email: "tylerhesthedude@gmail.com",
+					default_phone: "555-555-5555",
 					emails: [
 						"tylerhesthedude@gmail.com"
 					],
@@ -155,11 +155,11 @@ var contacts = [
   					</thead>
   					<tbody id="contacts">
   						<tr id="contact">
-  							<td width="0%"><img src='http://www.gravatar.com/avatar/${md5(defaultEmail)}?d=monsterid&s=50'/></td>
+  							<td width="0%"><img src='http://www.gravatar.com/avatar/${md5(default_email)}?d=monsterid&s=50'/></td>
   							<td>${name}</td>
   							<td>${title}</td>
-  							<td>${defaultPhone}</td>
-  							<td>${defaultEmail}</td>
+  							<td>${default_phone}</td>
+  							<td>${default_email}</td>
   							<td nowrap="nowrap">
   								<a href="#"><img src="assets/edit.gif" width="16" height="16" title="Edit this contact" alt="Edit this contact" /></a>
   								<a href="#" onclick="return deleteContact('${name}', '${id}');"><img src="assets/delete.gif" width="16" height="16" title="Delete this contact" alt="Delete this contact" /></a>
