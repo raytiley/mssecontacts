@@ -1,3 +1,5 @@
-class HomeController < ActionController::Base
-  protect_from_forgery
+class HomeController < ApplicationController
+	def index
+		# Eventually here we might want to preload the contacts
+	end
 end
