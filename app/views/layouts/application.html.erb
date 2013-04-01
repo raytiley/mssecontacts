@@ -37,7 +37,7 @@
       }
     </style>
   	<script lang="text/javascript">
-var contacts = [
+                      var contacts = [
 				{
 					id: "1ab",
 					name: "Steve Atterbury",
@@ -95,10 +95,18 @@ var contacts = [
   		$().ready(function() {
                         refreshContacts();
                 });
+
+                function editContact(contactId) {
+                    var row = $("tr.contact_id_"+contactId);
+                    
+                    $("#contactModal").find("#name").val($(row).find(".name").text());
+                    $("#contactModal").find("#title").val($(row).find(".title").text());
+                    
+                }
                 
                 function refreshContacts() {
                         $.getJSON("contacts", function(data) {
-                            contacts = data;
+                            /*contacts = data;*/
                             var contact_template = $('#contacts').clone();
                             $('#contact').remove();
                             contact_template.tmpl(contacts).appendTo('#contacts');
@@ -178,14 +186,14 @@ var contacts = [
   						</tr>
   					</thead>
   					<tbody id="contacts">
-  						<tr id="contact">
+  						<tr id="contact" class="contact_id_${id}">
   							<td width="0%"><img src='http://www.gravatar.com/avatar/${md5(default_email)}?d=monsterid&s=50'/></td>
-  							<td>${name}</td>
-  							<td>${title}</td>
-  							<td>${default_phone}</td>
-  							<td>${default_email}</td>
+  							<td class="name">${name}</td>
+  							<td class="title">${title}</td>
+  							<td class="default_phone">${default_phone}</td>
+  							<td class="default_email">${default_email}</td>
   							<td nowrap="nowrap">
-  								<a href="#"><img src="assets/edit.gif" width="16" height="16" title="Edit this contact" alt="Edit this contact" /></a>
+  								<a href="#" onClick="editContact('${id}');" data-toggle="modal" data-target="#contactModal" ><img src="assets/edit.gif" width="16" height="16" title="Edit this contact" alt="Edit this contact" /></a>
   								<a href="#" onclick="return deleteContact('${name}', '${id}');"><img src="assets/delete.gif" width="16" height="16" title="Delete this contact" alt="Delete this contact" /></a>
   							</td>
   						</tr>
