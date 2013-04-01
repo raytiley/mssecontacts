@@ -59,9 +59,11 @@
 					default_phone: "555-555-5555",
 					emails: [
 						"smcadams86@gmail.com",
+						"mcad0025@umn.edu"
 					],
 					phones: [
-						"555-555-5555"
+						"555-555-5555",
+						"123-555-5555"
 					]
 				},
 				{
@@ -101,7 +103,13 @@
                     
                     $("#contactModal").find("#name").val($(row).find(".name").text());
                     $("#contactModal").find("#title").val($(row).find(".title").text());
-                    
+                    $.each($(row).find(".emails li"), function(index, value) {
+                        addEmailToModal($(value).text());
+                    });
+                    $.each($(row).find(".phones li"), function(index, value) {
+                        addPhoneToModal($(value).text());
+                    });
+
                 }
                 
                 function refreshContacts() {
@@ -124,6 +132,46 @@
   			}
   			return false;
   		}
+
+                function addPhoneToModal(value) {
+                   $("#contactModal").find(".phones")
+                     .append($("<div>")
+                       .attr("class", "phone")
+                       .append($("<input>")
+                         .attr("type", "text")
+                         .attr("value", value)
+                         .attr("class", "phone_input")
+                         .attr("placeholder", "Phone")
+                       )
+                       .append($("<div>")
+                         .attr("class", "btn btn-danger")
+                         .attr("onClick", "$(this).parent().remove();")
+                         .append($("<i>")
+                           .attr("class", "icon icon-trash icon-white")
+                         )
+                       )
+                     );
+                }
+
+                function addEmailToModal(value) {
+                   $("#contactModal").find(".emails")
+                     .append($("<div>")
+                       .attr("class", "email")
+                       .append($("<input>")
+                         .attr("type", "text")
+                         .attr("value", value)
+                         .attr("class", "email_input")
+                         .attr("placeholder", "Email")
+                       )
+                       .append($("<div>")
+                         .attr("class", "btn btn-danger")
+                         .attr("onClick", "$(this).parent().remove();")
+                         .append($("<i>")
+                           .attr("class", "icon icon-trash icon-white")
+                         )
+                       )
+                     );
+                }
 
   	</script>
   </head>
@@ -190,8 +238,20 @@
   							<td width="0%"><img src='http://www.gravatar.com/avatar/${md5(default_email)}?d=monsterid&s=50'/></td>
   							<td class="name">${name}</td>
   							<td class="title">${title}</td>
-  							<td class="default_phone">${default_phone}</td>
-  							<td class="default_email">${default_email}</td>
+  							<td class="phones">
+								<ul>
+								{{each phones}}
+								  <li>${this}</li>
+								{{/each}}
+								</ul>      
+							</td>
+  							<td class="emails">
+                                                                <ul>
+								{{each emails}}
+								  <li>${this}</li>
+								{{/each}}
+								</ul>      
+                                                        </td>
   							<td nowrap="nowrap">
   								<a href="#" onClick="editContact('${id}');" data-toggle="modal" data-target="#contactModal" ><img src="assets/edit.gif" width="16" height="16" title="Edit this contact" alt="Edit this contact" /></a>
   								<a href="#" onclick="return deleteContact('${name}', '${id}');"><img src="assets/delete.gif" width="16" height="16" title="Delete this contact" alt="Delete this contact" /></a>
@@ -225,25 +285,15 @@
 	  <div class="control-group">
 	    <label class="control-label" for="emails">Emails</label>
 	    <div class="controls">
-              <div class="emails">
-                <div class="email">
-  	          <input type="text" class="email_input" placeholder="Email">
-                  <div class="btn"><i class="icon icon-trash"></i></div>
-                </div>
-                <div class="btn"><i class="icon icon-plus"></i></div>
-              </div>
+              <div class="emails"></div>
+              <div class="btn" onClick="addEmailToModal('');"><i class="icon icon-plus"></i></div>
 	    </div>
 	  </div>
 	  <div class="control-group">
 	    <label class="control-label" for="phones">Phones</label>
 	    <div class="controls">
-              <div class="phones">
-                <div class="phone">
-  	          <input type="text" class="phone_input" placeholder="Phone">
-                  <div class="btn"><i class="icon icon-trash"></i></div>
-                </div>
-                <div class="btn"><i class="icon icon-plus"></i></div>
-              </div>
+              <div class="phones"></div>
+              <div class="btn" onClick="addPhoneToModal('');"><i class="icon icon-plus" ></i></div>
 
 	    </div>
 	  </div>
