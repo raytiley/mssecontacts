@@ -14,7 +14,6 @@ Mssecontacts::Application.routes.draw do
   #   resources :products
 
   resources :contacts
-  resources :home
 
   # Sample resource route with options:
   #   resources :products do
