@@ -46,9 +46,7 @@ var TableView = Backbone.View.extend({
 	render: function (eventName) {
 		this.$el.empty();
 		var html=this.template(this.collection.toJSON());
-
-		console.log(html);
-		var $table=$(html);
+		var $table=$.parseHTML(html);
 		this.collection.each(function(contact) {
 			var contactview=new RowView({ model: contact });
 			var $tr=contactview.render().$el;            
@@ -80,7 +78,6 @@ var RowView = Backbone.View.extend({
 		contacts = new ContactCollection();
 		console.log("contacts : " + contacts.toJSON());
 		var tableView = new TableView({collection: contacts});
-		console.log(tableView.render().$el);
-		$("#content").append(  );
+		$("#content").append(tableView.render().$el);
 		contacts.fetch();
 });
