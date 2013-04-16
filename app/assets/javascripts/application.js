@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= md5
+//= require jquery.mobile
 //= require_tree .
