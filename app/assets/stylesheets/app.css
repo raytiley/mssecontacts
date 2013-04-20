@@ -1,0 +1,11 @@
+#phones .ui-btn-inner, #emails .ui-btn-inner {
+	padding:2px;
+	height:32px;
+	width:32px;
+
+}
+
+.delete-btn {
+	height:32px;
+	width:32px;
+}

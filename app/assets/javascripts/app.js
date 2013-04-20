@@ -279,7 +279,7 @@ function addEmail(email, defaultEmail, checkDefault) {
   }
   var newElement = $(
     '<div data-role="fieldcontain" class="ui-hide-label">' +
-    '  <fieldset data-role="controlgroup" data-type="horizontal">' +
+    '  <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">' +
     '    <table width="100%" cellspacing="0" cellpadding="0">' +
     '      <tr>' +
     '        <td>' +
@@ -291,7 +291,7 @@ function addEmail(email, defaultEmail, checkDefault) {
     '          <label for="email_' + _nextID + '">Email</label>' +
     '        </td>' +
     '        <td>' +
-    '          <a href="" data-role="button" data-icon="delete" class="ui-btn-right" data-inline="true" onclick="return onDeleteList(event);">Delete</a>' +
+    '          <a href="" data-role="button" data-icon="delete" class="ui-btn-right delete-btn" data-inline="true" onclick="return onDeleteList(event);"></a>' +
     '        </td>' +
     '      </tr>' +
     '    </table>' +
@@ -325,7 +325,7 @@ function addPhoneNum(phone, defaultCall, defaultText, checkDefault) {
 
   var newElement = $(
     '<div data-role="fieldcontain" class="ui-hide-label">' +
-    '  <fieldset data-role="controlgroup" data-type="horizontal">' +
+    '  <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">' +
     '    <table width="100%" cellspacing="0" cellpadding="0">' +
     '      <tr>' +
     '        <td>' +
@@ -341,7 +341,7 @@ function addPhoneNum(phone, defaultCall, defaultText, checkDefault) {
     '          <label for="phone_' + _nextID + '">Phone Number</label>' +
     '        </td>' +
     '        <td>' +
-    '          <a href="" data-role="button" data-icon="delete" class="ui-btn-right" data-inline="true" onclick="return onDeleteList(event);">Delete</a>' +
+    '          <a href="" data-role="button" data-icon="delete" class="ui-btn-right delete-btn" data-inline="true" onclick="return onDeleteList(event);"></a>' +
     '        </td>' +
     '      </tr>' +
     '    </table>' +
